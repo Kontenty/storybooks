@@ -2,9 +2,11 @@ import dotenv from "dotenv";
 import path from "path";
 import express from "express";
 import exphbs from "express-handlebars";
+import session from "express-session";
 import connectDB from "./config/db";
 import log, { expressLogger } from "./logger";
 import routes from "./routes";
+import { initPassport } from "./auth";
 
 dotenv.config();
 const app = express();
@@ -21,6 +23,18 @@ app.engine(
 );
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
+
+// Session
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "lady fingers",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+// Passport
+initPassport(app);
 
 // Routes
 app.use("/", routes);

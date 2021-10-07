@@ -18,8 +18,11 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
     "express-pino-logger": "^6.0.0",
+    "express-session": "^1.17.2",
     "mongoose": "^6.0.9",
     "nodemon": "^2.0.13",
+    "passport": "^0.5.0",
+    "passport-google-oauth2": "^0.2.0",
     "pino": "^6.13.3",
     "pino-pretty": "^7.0.1",
     "ts-node": "^10.2.1",
@@ -29,8 +32,11 @@
     "@types/express": "^4.17.13",
     "@types/express-handlebars": "^5.3.1",
     "@types/express-pino-logger": "^4.0.2",
+    "@types/express-session": "^1.17.4",
     "@types/morgan": "^1.9.3",
     "@types/node": "^16.10.3",
+    "@types/passport": "^1.0.7",
+    "@types/passport-google-oauth2": "^0.1.4",
     "@types/pino": "^6.3.11"
   }
 }
