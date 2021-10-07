@@ -4,11 +4,14 @@ import express from "express";
 import exphbs from "express-handlebars";
 import connectDB from "./config/db";
 import log, { expressLogger } from "./logger";
+import routes from "./routes";
 
 dotenv.config();
 const app = express();
 app.use(expressLogger);
 app.use(express.static("public"));
+
+// Handlebars
 app.engine(
   "hbs",
   exphbs({
@@ -19,9 +22,8 @@ app.engine(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
 
-app.get("/", (req, res) => {
-  res.render("login");
-});
+// Routes
+app.use("/", routes);
 
 const start = async () => {
   const PORT = process.env.PORT || 5000;
