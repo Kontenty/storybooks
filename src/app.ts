@@ -1,14 +1,26 @@
 import dotenv from "dotenv";
+import path from "path";
 import express from "express";
+import exphbs from "express-handlebars";
 import connectDB from "./config/db";
 import log, { expressLogger } from "./logger";
 
 dotenv.config();
 const app = express();
 app.use(expressLogger);
+app.use(express.static("public"));
+app.engine(
+  "hbs",
+  exphbs({
+    layoutsDir: path.join(__dirname, "views", "layouts"),
+    extname: ".hbs",
+  })
+);
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", ".hbs");
 
 app.get("/", (req, res) => {
-  res.status(200).send("Hello");
+  res.render("login");
 });
 
 const start = async () => {

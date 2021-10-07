@@ -16,6 +16,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
     "express-pino-logger": "^6.0.0",
     "mongoose": "^6.0.9",
     "nodemon": "^2.0.13",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/express-handlebars": "^5.3.1",
     "@types/express-pino-logger": "^4.0.2",
     "@types/morgan": "^1.9.3",
     "@types/node": "^16.10.3",
