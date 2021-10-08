@@ -13,3 +13,17 @@ body {
   background-color: #fff;
   text-align: center;
 }
+
+.navbar {
+  display: flex;
+  gap: 50px;
+  padding: 20px;
+  align-items: center;
+}
+.navbar h3 {
+  margin: 0;
+}
+.navbar .nav-items {
+  display: flex;
+  gap: 20px;
+}
