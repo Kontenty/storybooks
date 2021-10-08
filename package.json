@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "Story books app with oauth authentication",
   "main": "index.js",
+  "packageManager": "yarn@3.0.2",
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon --exec 'ts-node' src/app.ts | pino-pretty -c -t"
+    "start": "cross-env NODE_ENV=development ts-node-dev --respawn ./src/app.ts | pino-pretty -c -t"
   },
   "keywords": [
     "express",
@@ -20,9 +21,7 @@
     "express-pino-logger": "^6.0.0",
     "express-session": "^1.17.2",
     "mongoose": "^6.0.9",
-    "nodemon": "^2.0.13",
     "passport": "^0.5.0",
-    "passport-google-oauth": "^2.0.0",
     "passport-google-oauth2": "^0.2.0",
     "pino": "^6.13.3",
     "pino-pretty": "^7.0.1",
@@ -35,9 +34,9 @@
     "@types/express-session": "^1.17.4",
     "@types/node": "^16.10.3",
     "@types/passport": "^1.0.7",
-    "@types/passport-google-oauth": "^1.0.42",
     "@types/passport-google-oauth2": "^0.1.4",
     "@types/pino": "^6.3.11",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.3"
   }
 }
