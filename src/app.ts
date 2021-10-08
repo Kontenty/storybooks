@@ -3,15 +3,18 @@ import path from "path";
 import express from "express";
 import exphbs from "express-handlebars";
 import session from "express-session";
+import passport from "passport";
 import connectDB from "./config/db";
+import { initPassport } from "./config/passport";
 import log, { expressLogger } from "./logger";
 import routes from "./routes";
-import { initPassport } from "./auth";
 
 dotenv.config();
 const app = express();
 app.use(expressLogger);
 app.use(express.static("public"));
+
+initPassport(passport);
 
 // Handlebars
 app.engine(
@@ -34,7 +37,8 @@ app.use(
 );
 
 // Passport
-initPassport(app);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
 app.use("/", routes);
